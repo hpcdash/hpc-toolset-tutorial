@@ -23,13 +23,13 @@ These tutorial will be using the the `hpcadmin` credentials listed in
 
 ### Login
 
-Now you should login to Open OnDemand through https://localhost:3443.  Note that you'll have to
+Now you should login to Open OnDemand through https://localhost:8443.  Note that you'll have to
 accept the self-signed certificates from both Open OnDemand and the identity provider.
 
 ### Get a shell session
 
 At some points during this tutorial you'll need to execute commands in a shell session.
-You can [use the shell app](https://localhost:3443/pun/sys/shell/ssh/ondemand)
+You can [use the shell app](https://localhost:8443/pun/sys/shell/ssh/ondemand)
 to get an ssh session in the web browser for this purpose.
 
 ## Walkthrough Tutorial
@@ -313,7 +313,7 @@ This tutorial covers:
 ### Starting the dashboard in development mode
 
 First we need to pull the source code from the Github Repository. Let's
-[use the shell app](https://localhost:3443/pun/sys/shell/ssh/ondemand) for this.
+[use the shell app](https://localhost:8443/pun/sys/shell/ssh/ondemand) for this.
 
 Be sure to be on the `ondemand` host because that container has node and ruby on it,
 which we need to build the project.
@@ -345,7 +345,7 @@ Once you run `bin/setup` you should see a bunch of output about getting Rugy gem
 Node.js packages.
 
 If you've successfully setup, then so you should be able to
-[navigate to the development version of the dashboard](https://localhost:3443/pun/dev/dashboard)
+[navigate to the development version of the dashboard](https://localhost:8443/pun/dev/dashboard)
 where you'll have to click the button to 'Initialize App' to move forward.
 
 That's it! At this point you should be viewing the dashboard in the development mode.  This means
@@ -388,7 +388,7 @@ touch ~/ondemand/config/ondemand.d/ondemand.yml
 OOD_CONFIG_D_DIRECTORY="/home/hpcadmin/ondemand/config/ondemand.d"
 ```
 
-Now let's [edit the ondemand.yml](https://localhost:3443/pun/sys/dashboard/files/edit/home/hpcadmin/ondemand/config/ondemand.d/ondemand.yml)
+Now let's [edit the ondemand.yml](https://localhost:8443/pun/sys/dashboard/files/edit/home/hpcadmin/ondemand/config/ondemand.d/ondemand.yml)
 file that we initialized above to add the configuration.
 
 ```yaml
@@ -480,7 +480,7 @@ touch ~/ondemand/config/views/widgets/_hello_world.html
 Be sure to add the underscore prefix to this filename! This is a Rails convention for partials and not a mistype
 it is indeed `_hello_world.html`.
 
-Now, we can use the [file editor to edit our new widget](https://localhost:3443/pun/sys/dashboard/files/edit/home/hpcadmin/ondemand/config/views/widgets/_hello_world.html).  Let's add this very simple div to just thank you for being here. Of course, you can put
+Now, we can use the [file editor to edit our new widget](https://localhost:8443/pun/sys/dashboard/files/edit/home/hpcadmin/ondemand/config/views/widgets/_hello_world.html).  Let's add this very simple div to just thank you for being here. Of course, you can put
 any text you like here. Feel free to have fun with it!
 
 ```html
@@ -550,7 +550,7 @@ check "Create a new Git Project from this?".  Then click "Submit" to create a ne
 application.
 
 This copied what was in `/var/git/bc_example_jupyter` to `/home/hpcadmin/ondemand/dev/jupyter`.
-You can navigate to these files [through the Files app with this link](https://localhost:3443/pun/sys/files/fs/home/hpcadmin/ondemand/dev/jupyter/)
+You can navigate to these files [through the Files app with this link](https://localhost:8443/pun/sys/files/fs/home/hpcadmin/ondemand/dev/jupyter/)
 or simply Press the "Files" button in Jupyter's row of the sandbox applications table.
 
 ![create sandbox app](imgs/create_sandbox_app.gif)
@@ -578,25 +578,25 @@ If you try to submit it as is, you'll get this error:
 ![error message that reads The cluster was never set. Either set it in form.yml.erb with `cluster` or `form.cluster` or set `cluster` in submit.yml.erb.](imgs/no_cluster.png)
 
 We need to edit the `form.yml` in the appication's folder. We can navigate to the folder through the
-files app.  The URL is `https://localhost:3443/pun/sys/files/fs/home/hpcadmin/ondemand/dev/jupyter/`.
+files app.  The URL is `https://localhost:8443/pun/sys/files/fs/home/hpcadmin/ondemand/dev/jupyter/`.
 
 Here you'll see the `form.yml` file. We can edit it by clicking on the file and pressing the "Edit"
-button.  This will take us to the [file editor app, with this file open](https://localhost:3443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/form.yml)
+button.  This will take us to the [file editor app, with this file open](https://localhost:8443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/form.yml)
 
 In the file Editor, specify `hpc` as the cluster attribute on line 11 like so: `cluster: "hpc"`. Save this file by clicking
 the "Save" button at the top left.
 
 #### Launch the Jupyter Application
 
-Now when we navigate back to our [interactive sessions](https://localhost:3443/pun/sys/dashboard/batch_connect/sessions),
+Now when we navigate back to our [interactive sessions](https://localhost:8443/pun/sys/dashboard/batch_connect/sessions),
 you'll see the "Interactive Apps \[Sandbox\]" menu with an item labeled "Jupyter Notebook".
 
-[Follow this link](https://localhost:3443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) and we'll be
+[Follow this link](https://localhost:8443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) and we'll be
 presented with this form for specifying different attributes about the job we want to submit to the SLURM scheduler.
 
 We don't need to change anything in this form, so simply press "Launch" at the bottom of the form. After pressing
 launch the job should have successfully launched the job and redirected us back
-the [interactive sessions](https://localhost:3443/pun/sys/dashboard/batch_connect/sessions) page where we'll
+the [interactive sessions](https://localhost:8443/pun/sys/dashboard/batch_connect/sessions) page where we'll
 see a panel showing our job.  
 
 ![fix cluster and submit](imgs/fix_cluster.gif)
@@ -634,7 +634,7 @@ We need to add this line to our job's shell script to enable it.
 source /usr/local/jupyter/4.3.5/bin/activate
 ```
 
-So let's [open the template/script.sh.erb in the file editor](https://localhost:3443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/template/script.sh.erb)
+So let's [open the template/script.sh.erb in the file editor](https://localhost:8443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/template/script.sh.erb)
 and add this to line 27 of the shell script, just before we start jupyter.
 
 Lines 24 - 31 of `template/script.sh.erb` should now look like this.
@@ -652,7 +652,7 @@ jupyter notebook --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>
 
 #### Correctly launch
 
-Now we can [launch the application again](https://localhost:3443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) and it should work.
+Now we can [launch the application again](https://localhost:8443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) and it should work.
 
 When it is up and running and available to use the panel will show a "Connect to Jupyter" button.  Click this button
 and OnDemand will redirect us to Jupyter.  
@@ -673,7 +673,7 @@ section, and you may want to use and save _it_ instead so that any `git diff` yo
 smaller and easier to read.
 
 You can use the
-[shell app to login to this directory](https://localhost:3443/pun/sys/shell/ssh/ondemand/home/hpcadmin/ondemand/dev/jupyter/)
+[shell app to login to this directory](https://localhost:8443/pun/sys/shell/ssh/ondemand/home/hpcadmin/ondemand/dev/jupyter/)
 
 In this shell you'll save in git with these commands:
 
@@ -758,12 +758,12 @@ form:
 #   - bc_queue
 ```
 
-Refresh the [new session form](https://localhost:3443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new)
+Refresh the [new session form](https://localhost:8443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new)
 and you should now see your updates.
 
 But before we submit to test them out, we'll need to reconfigure the `submit.yml.erb` to use this
 new field.  You can
-[edit the submit.yml.erb in the file editor app](https://localhost:3443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/submit.yml.erb).
+[edit the submit.yml.erb in the file editor app](https://localhost:8443/pun/sys/file-editor/edit/home/hpcadmin/ondemand/dev/jupyter/submit.yml.erb).
 
 You'll need to specify the script's queue_name as the partition like so. The `script` is the logical
 "script" we're submitting to the scheduler.  And the `queue_name` is the field of the script that will
@@ -783,7 +783,7 @@ If you're not super comfortable with the terminology just remember this: `custom
 (the file that defines what the UI form looks like) so it can be used in the `submit.yml.erb` (the file
 that is used to configure the job that is being submitted) as `<%= custom_queue %>`.
 
-When [launch the application again](https://localhost:3443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) 
+When [launch the application again](https://localhost:8443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new) 
 you can [login to a shell](#get-a-shell-session) and confirm you chose a different queue with this command.
 
 ```shell
@@ -971,7 +971,7 @@ form:
   - jupyterlab_switch
 ```
 
-Refresh the [new session form](https://localhost:3443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new)
+Refresh the [new session form](https://localhost:8443/pun/sys/dashboard/batch_connect/dev/jupyter/session_contexts/new)
 and you should now see your updates.
 
 For this change, there's no need to edit the `submit.yml.erb`.  This toggle happens in the
@@ -1318,7 +1318,7 @@ field when the debug option is chosen.
 
 <br>
 
-Access OnDemand dashboard https://localhost:3443
+Access OnDemand dashboard https://localhost:8443
 
 ### Ensure environment is configured for development
 
@@ -1339,7 +1339,7 @@ Use ondemand SCL
 
 Create new app
 
-1. Access OnDemand dashboard https://localhost:3443
+1. Access OnDemand dashboard https://localhost:8443
 2. Develop => My Sandbox Apps to see the list of apps
 3. Click Launch Files
 4. "New Dir" insert "df" then close
@@ -1498,8 +1498,8 @@ Deploy app
 
 ### URIs of apps
 
-Go to Sandbox App tab and notice URL: https://localhost:3443/pun/dev/df
-Production app is same URL except "sys" instead of "dev": https://localhost:3443/pun/sys/df
+Go to Sandbox App tab and notice URL: https://localhost:8443/pun/dev/df
+Production app is same URL except "sys" instead of "dev": https://localhost:8443/pun/sys/df
 
 Open new private browser window. Login as sfoster. Try accessing both URLs.
 
@@ -1583,7 +1583,7 @@ Notes:
 1. Open Shell app to df app
 2. `mkdir public`
 3. `cp /var/www/ood/apps/sys/jupyter/icon.png public/`
-4. https://localhost:3443/pun/dev/df3/icon.png
+4. https://localhost:8443/pun/dev/df3/icon.png
 
 Notes:
 

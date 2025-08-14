@@ -1,7 +1,7 @@
 #### Tutorial links
 
 - Coldfront: https://localhost:2443
-- OnDemand: https://localhost:3443
+- OnDemand: https://localhost:8443
 - XDMoD: https://localhost:4443
 - Login to frontend: `ssh -p 6222 hpcadmin@localhost`
 - GitHub Repo: https://github.com/ubccr/hpc-toolset-tutorial
@@ -30,7 +30,7 @@ To enable XDMoD Integration execute on frontend via Shell app:
 
     # modifying /etc/xdmod/portal_settings.ini for CORS already completed in these images
     #
-    # domains = "https://localhost:3443"
+    # domains = "https://localhost:8443"
 
     # modifying /etc/ood/config/clusters.d/hpc.yml for XDMoD resource id already completed in these images:
     #

@@ -199,7 +199,7 @@ services:
     expose:
       - "22"
     ports:
-      - "127.0.0.1:3443:3443"
+      - "127.0.0.1:8443:8443"
     depends_on:
       - ldap
       - base

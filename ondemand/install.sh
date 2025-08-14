@@ -28,9 +28,9 @@ tee /etc/ood/config/ood_portal.yml <<EOF
 # Portal configuration
 #
 listen_addr_port:
-  - '3443'
+  - '8443'
 servername: localhost
-port: 3443
+port: 8443
 ssl:
   - 'SSLCertificateFile "/etc/pki/tls/certs/localhost.crt"'
   - 'SSLCertificateKeyFile "/etc/pki/tls/private/localhost.key"'
