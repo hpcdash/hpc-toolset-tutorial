@@ -37,7 +37,7 @@ ssl:
 node_uri: "/node"
 rnode_uri: "/rnode"
 oidc_scope: "openid profile email groups"
-dex_uri: false
+dex_uri: /dex
 dex:
   client_redirect_uris:
     - "https://localhost:4443/simplesaml/module.php/authoidcoauth2/linkback.php"
