@@ -1,6 +1,6 @@
 services:
   ldap:
-    image: hpcdash/hpcts:ldap-${HPCTS_VERSION}
+    image: ubccr/hpcts:ldap-2025.02
     build:
       context: ./ldap
     hostname: ldap
