@@ -203,7 +203,7 @@ services:
       - "127.0.0.1:5554:5554"
     depends_on:
       - ldap
-      - frontend
+      - base
 
   xdmod:
     image: hpcdash/hpcts:xdmod-${HPCTS_VERSION}
